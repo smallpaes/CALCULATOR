@@ -1,0 +1,60 @@
+body{
+    background-color: antiquewhite;
+}
+
+.container{
+    border: 10px solid green;
+    width: 500px;
+    height: 550px;
+    background-color: green;
+    border-radius: 10px;
+    margin:30px auto;
+}
+
+#name{
+    font-size: 30px;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.display{
+    border: 1px solid green;
+    margin: 0 0 5px 0;
+}
+
+.display p{
+    text-align: right;
+    font-family: "Courier New";
+    font-weight: bold;
+    font-size: 56px;
+    width: 100%;
+    height: 80px;
+    background-color: beige;
+    margin: 20px auto;
+    border-radius: 5px;
+}
+
+p.tempresult{
+    height: 50px;
+}
+
+div.buttonGroup{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-auto-rows: minmax(60px, auto);
+}
+
+button{
+    background-color: yellowgreen;
+    border-radius: 2px;
+    margin: 2px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+button:hover{
+    background-color: orange;
+}
+

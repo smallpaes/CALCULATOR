@@ -1,0 +1,110 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator Project</title>
+    <link rel="stylesheet" type="text/css" href="./calculator.css" />
+</head>
+<body>
+    <div class = container>
+        <div id = name>
+            <p>Mike's Calculator</p>
+        </div>
+        <div class = display>
+            <p class = result></p>
+            <p class = tempresult></p>
+        </div>
+        <div class = buttonGroup>
+            <button class=seven>7</button>
+            <button class=eight>8</button>
+            <button class=nine>9</button>
+            <button class=clear>C</button>
+            <button class=four>4</button>
+            <button class=five>5</button>
+            <button class=six>6</button>
+            <button class=sub>-</button>
+            <button class=one>1</button>
+            <button class=two>2</button>
+            <button class=three>3</button>
+            <button class=mul>*</button>
+            <button class=zero>0</button>
+            <button class=res>=</button>
+            <button class=div>/</button>
+            <button class=sum>+</button>
+        </div>
+    </div>
+`   
+    <script>
+    function add(a,b){
+        let result = a+b;
+        return result;
+    }
+
+    function subtract(a,b){
+        let result = a-b;
+        return result;
+    }
+
+    function multiply(a,b){
+        let result = a*b;
+        return result;
+    }
+
+    function divide(a,b){
+        let result = a/b;
+        return result;
+    }
+
+    function operate(operator, num1, num2){
+        switch(operator){
+            case '+':
+                display.textContent = add(num1, num2);
+                break;
+            case '-':
+                display.textContent = subtract(num1, num2);
+                break;
+            case '*':
+                display.textContent = multiply(num1, num2);
+                break;
+            case '/':
+                display.textContent = divide(num1, num2);
+                break;
+        }
+    }
+
+    let display = document.querySelector('.result');
+    let tempdisplay = document.querySelector('.tempresult');
+    let btn = document.querySelectorAll('button');
+    let tempOpr = document.createElement('p');
+    let tempFirstnumber = document.createElement('p');
+    btn.forEach((button)=>{
+        button.addEventListener('click',event=>{
+            if(event.toElement.textContent !== '=' & event.toElement.textContent !== 'C'){
+                display.textContent += event.toElement.textContent;
+
+                if(isNaN(event.toElement.textContent)){
+                    tempFirstnumber.textContent = tempdisplay.textContent;
+                    tempdisplay.textContent = '';
+                    tempOpr.textContent = event.toElement.textContent;
+                }else{
+                    tempdisplay.textContent += event.toElement.textContent;
+                }
+            }else if(event.toElement.textContent !== '=' & event.toElement.textContent == 'C'){
+                    display.textContent = '';
+                    tempdisplay.textContent = '';
+            }else{
+                let operator = tempOpr.textContent;
+                let num1 = Number(tempFirstnumber.textContent);
+                let num2 = Number(tempdisplay.textContent);
+                operate(operator, num1, num2);           
+                tempdisplay.textContent = '';    
+            }
+            
+            
+        })
+    })
+
+    
+
+    </script>
+</body>
+</html>
